@@ -13,7 +13,7 @@ function init() {
     var sound = new Audio('sound/song.mp3')
     sound.play()
     
-    setInterval(createBalloon, getRandomIntInclusive(1000, 2000));
+    setInterval(createBalloon, getRandomIntInclusive(800, 1500));
     setInterval(moveBaloons, 50);
 }
 
