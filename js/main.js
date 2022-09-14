@@ -66,7 +66,6 @@ function fadeOutEffect(balloon) {
             balloon.style.opacity -= 0.1;
         } else {
             clearInterval(fadeEffect);
-            balloon.remove();
         }
     }, 100);
 }
