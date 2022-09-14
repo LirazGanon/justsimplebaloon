@@ -1,6 +1,13 @@
 
 body{
+    text-align: center;
     background-color: rgb(36, 36, 36);
+}
+
+button{
+    margin-top: 300px;
+    font-size: 3rem;
+    padding: 20px;
 }
 .balloon {
     position: absolute;
@@ -9,12 +16,3 @@ body{
     border-radius: 50%;
 }
 
-/* .balloon1{
-background-color: aquamarine;
-left: 20%;
-}
-
-.balloon2{
-background-color: rgb(200, 94, 70);
-left: 40%;
-} */

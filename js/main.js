@@ -8,9 +8,11 @@ var counter = 0
 
 
 function init() {
+    var button = document.querySelector('button')
+    button.style.visibility = 'hidden'
     var sound = new Audio('sound/song.mp3')
     sound.play()
-
+    
     setInterval(createBalloon, getRandomIntInclusive(1000, 2000));
     setInterval(moveBaloons, 50);
 }
@@ -33,7 +35,7 @@ function createBalloon() {
     console.log(gBaloons);
     var bottom = gBaloons[gBaloons.length - 1].bottom + 'px'
     var backgroundColor = getRandomColor()
-    var left = getRandomIntInclusive(1, 95) + '%'
+    var left = getRandomIntInclusive(1, 90) + '%'
     let div = document.createElement('div');
     elContainer.appendChild(div)
     elBallon = document.querySelectorAll('.container div')
