@@ -13,10 +13,13 @@ function init() {
     var sound = new Audio('sound/song.mp3')
     sound.play()
     
-    setInterval(createBalloon, getRandomIntInclusive(800, 1500));
+    setInterval(createBalloon, getRandomIntInclusive(500, 800));
     setInterval(moveBaloons, 50);
 }
 
+function onSpeedUp(bllonIdx){
+    gBaloons[bllonIdx].speed += 5
+}
 
 function moveBaloons() {
 
@@ -42,6 +45,7 @@ function createBalloon() {
     console.log(elBallon);
     elBallon[counter].setAttribute("class", "balloon") 
     elBallon[counter].onclick = "onBallonClick(this)"
+    elBallon[counter].setAttribute("onmouseout", `onSpeedUp(${counter})`)
     elBallon[counter].setAttribute("onclick", "onBallonClick(this)")
     elBallon[counter].style.backgroundColor = backgroundColor
     elBallon[counter].style.left = left
@@ -53,22 +57,9 @@ function createBalloon() {
 function onBallonClick(balloon) {
     var sound = new Audio('sound/pop.wav')
     sound.play()
-    fadeOutEffect(balloon)
+    balloon.style.opacity   = 0
 }
 
-
-function fadeOutEffect(balloon) {
-    var fadeEffect = setInterval(function () {
-        if (!balloon.style.opacity) {
-            balloon.style.opacity = 1;
-        }
-        if (balloon.style.opacity > 0) {
-            balloon.style.opacity -= 0.1;
-        } else {
-            clearInterval(fadeEffect);
-        }
-    }, 100);
-}
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
